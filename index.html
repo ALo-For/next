@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-         :root {
+        :root {
             --primary: #E63946;
             --primary-dark: #C1121F;
             --primary-light: rgba(230, 57, 70, 0.15);
@@ -193,6 +193,7 @@
             font-size: 1rem;
             position: relative;
             overflow: hidden;
+            transition: var(--transition);
         }
         
         .cart-indicator:hover {
@@ -260,6 +261,7 @@
             box-shadow: var(--shadow);
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
+            transition: var(--transition);
         }
         
         .product-card:hover {
@@ -278,6 +280,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: var(--transition);
         }
         
         .product-card:hover .product-image {
@@ -311,6 +314,7 @@
             font-weight: 800;
             margin-bottom: 1.2rem;
             color: var(--light);
+            transition: var(--transition);
         }
         
         .product-card:hover .product-title {
@@ -338,6 +342,7 @@
             cursor: pointer;
             border: 2px solid transparent;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
         }
         
         .color-option.selected {
@@ -360,6 +365,7 @@
             cursor: pointer;
             font-weight: 500;
             background: rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
         }
         
         .size-option.selected {
@@ -388,6 +394,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: var(--transition);
         }
         
         .quantity-btn:hover {
@@ -430,6 +437,7 @@
             gap: 0.8rem;
             font-family: inherit;
             font-weight: 700;
+            transition: var(--transition);
         }
         
         .add-to-cart:hover {
@@ -447,6 +455,7 @@
             padding: 2rem;
             overflow-y: auto;
             background-image: radial-gradient(circle at 20% 30%, rgba(230, 57, 70, 0.1) 0%, transparent 25%), linear-gradient(to bottom, var(--secondary-dark), var(--darker));
+            transition: right 0.3s ease;
         }
         
         .cart-page.open {
@@ -484,6 +493,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            transition: var(--transition);
         }
         
         .close-cart:hover {
@@ -559,25 +569,128 @@
             gap: 0.5rem;
             padding: 0.5rem 1rem;
             border-radius: var(--radius);
+            transition: var(--transition);
         }
         
         .remove-item:hover {
             background: rgba(230, 57, 70, 0.1);
         }
         
-        .cart-footer {
-            background: var(--dark-light);
-            padding: 2.5rem;
+        .delivery-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
             border-radius: var(--radius);
-            margin-top: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        
+        .delivery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        
+        .delivery-title {
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .delivery-price {
+            font-weight: 800;
+            color: var(--gold);
+        }
+        
+        .delivery-options {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        .delivery-options.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .delivery-option {
+            padding: 0.8rem;
+            border-radius: var(--radius);
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .delivery-option:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .delivery-option.selected {
+            border-color: var(--primary);
+            background: rgba(230, 57, 70, 0.1);
+        }
+        
+        .delivery-option-name {
+            font-weight: 600;
+        }
+        
+        .delivery-option-price {
+            color: var(--gold);
+            font-weight: 700;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .selected-governorate {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .change-governorate {
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        
+        .cart-summary {
+            margin-bottom: 2rem;
+        }
+        
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .cart-summary-label {
+            color: var(--text-secondary);
+        }
+        
+        .cart-summary-value {
+            font-weight: 600;
         }
         
         .cart-total {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 1.5rem;
             align-items: center;
         }
@@ -610,10 +723,18 @@
             justify-content: center;
             gap: 1rem;
             font-family: inherit;
+            transition: var(--transition);
         }
         
         .checkout-btn:hover {
             background: var(--gradient-dark);
+        }
+        
+        .checkout-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            background: var(--dark-light);
+            box-shadow: none;
         }
         
         .checkout-page {
@@ -627,6 +748,7 @@
             padding: 2rem;
             overflow-y: auto;
             background-image: radial-gradient(circle at 80% 20%, rgba(230, 57, 70, 0.1) 0%, transparent 25%), linear-gradient(to bottom, var(--secondary-dark), var(--darker));
+            transition: right 0.3s ease;
         }
         
         .checkout-page.open {
@@ -665,6 +787,7 @@
             box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
             font-weight: 700;
             font-family: inherit;
+            transition: var(--transition);
         }
         
         .back-to-cart:hover {
@@ -702,12 +825,21 @@
             color: var(--text);
             font-family: 'Tajawal', sans-serif;
             font-size: 1rem;
+            transition: var(--transition);
         }
         
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ADB5BD' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 1rem center;
+            background-size: 16px 12px;
         }
         
         .form-required {
@@ -731,6 +863,7 @@
             justify-content: center;
             gap: 1rem;
             font-family: inherit;
+            transition: var(--transition);
         }
         
         .submit-btn:hover {
@@ -748,6 +881,7 @@
             opacity: 0;
             visibility: hidden;
             backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
         }
         
         .overlay.active {
@@ -890,8 +1024,41 @@
             </div>
 
             <div class="cart-footer">
+                <div class="delivery-info" id="deliveryInfo">
+                    <div class="delivery-header" id="deliveryHeader">
+                        <div class="delivery-title">
+                            <i class="fas fa-truck"></i>
+                            <span>توصيل إلى</span>
+                        </div>
+                        <div class="delivery-price" id="deliveryPriceDisplay">0 د.ع</div>
+                    </div>
+                    
+                    <div id="selectedGovernorateContainer" style="display: none;">
+                        <div class="selected-governorate">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="selectedGovernorateName"></span>
+                        </div>
+                        <span class="change-governorate" id="changeGovernorate">تغيير المحافظة</span>
+                    </div>
+                    
+                    <div class="delivery-options" id="deliveryOptions">
+                        <!-- سيتم تعبئتها بالجافاسكريبت -->
+                    </div>
+                </div>
+                
+                <div class="cart-summary">
+                    <div class="cart-summary-row">
+                        <span class="cart-summary-label">المجموع الجزئي:</span>
+                        <span class="cart-summary-value" id="subtotal">0 د.ع</span>
+                    </div>
+                    <div class="cart-summary-row">
+                        <span class="cart-summary-label">سعر التوصيل:</span>
+                        <span class="cart-summary-value" id="deliveryPrice">0 د.ع</span>
+                    </div>
+                </div>
+                
                 <div class="cart-total">
-                    <span class="total-label">المجموع:</span>
+                    <span class="total-label">المجموع الكلي:</span>
                     <span class="total-amount" id="cartTotal">0 د.ع</span>
                 </div>
                 <button class="checkout-btn" id="checkoutBtn">
@@ -923,7 +1090,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="address" class="form-label">عنوان التوصيل <span class="form-required">*</span></label>
+                    <label for="governorate" class="form-label">المحافظة <span class="form-required">*</span></label>
+                    <select id="governorate" class="form-control form-select" required>
+                        <option value="" selected disabled>اختر المحافظة</option>
+                        <!-- سيتم تعبئتها بالجافاسكريبت -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address" class="form-label">عنوان التوصيل (أقرب نقطة دالة) <span class="form-required">*</span></label>
                     <textarea id="address" class="form-control" rows="3" required></textarea>
                 </div>
 
@@ -1091,6 +1266,28 @@
             }]
         }];
 
+        // أسعار التوصيل حسب المحافظة
+        const deliveryPrices = {
+            "بغداد": 5000,
+            "البصرة": 10000,
+            "النجف": 8000,
+            "كربلاء": 8000,
+            "بابل": 7000,
+            "الأنبار": 10000,
+            "نينوى": 12000,
+            "دهوك": 15000,
+            "أربيل": 12000,
+            "السليمانية": 15000,
+            "ذي قار": 10000,
+            "ميسان": 12000,
+            "واسط": 9000,
+            "صلاح الدين": 10000,
+            "كركوك": 10000,
+            "ديالى": 9000,
+            "المثنى": 12000,
+            "القادسية": 8000
+        };
+
         // عناصر DOM
         const productsContainer = document.getElementById('productsContainer');
         const cartCount = document.getElementById('cartCount');
@@ -1098,12 +1295,21 @@
         const cartPage = document.getElementById('cartPage');
         const closeCart = document.getElementById('closeCart');
         const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const subtotalElement = document.getElementById('subtotal');
+        const deliveryPriceElement = document.getElementById('deliveryPrice');
+        const deliveryPriceDisplay = document.getElementById('deliveryPriceDisplay');
         const cartTotal = document.getElementById('cartTotal');
         const checkoutBtn = document.getElementById('checkoutBtn');
         const overlay = document.getElementById('overlay');
         const checkoutPage = document.getElementById('checkoutPage');
         const backToCart = document.getElementById('backToCart');
         const checkoutForm = document.getElementById('checkoutForm');
+        const governorateSelect = document.getElementById('governorate');
+        const deliveryHeader = document.getElementById('deliveryHeader');
+        const deliveryOptions = document.getElementById('deliveryOptions');
+        const selectedGovernorateContainer = document.getElementById('selectedGovernorateContainer');
+        const selectedGovernorateName = document.getElementById('selectedGovernorateName');
+        const changeGovernorate = document.getElementById('changeGovernorate');
         const logo = document.getElementById('logo');
 
         // عرض المنتجات
@@ -1155,6 +1361,86 @@
 
             // إضافة الأحداث للمنتجات
             addProductEventListeners();
+        }
+
+        // تعبئة قائمة المحافظات في صفحة الدفع
+        function populateGovernorates() {
+            governorateSelect.innerHTML = '<option value="" selected disabled>اختر المحافظة</option>';
+            
+            Object.keys(deliveryPrices).forEach(gov => {
+                const option = document.createElement('option');
+                option.value = gov;
+                option.textContent = `${gov} (${deliveryPrices[gov]} د.ع)`;
+                governorateSelect.appendChild(option);
+            });
+        }
+
+        // عرض خيارات التوصيل في صفحة السلة
+        function showDeliveryOptions() {
+            if (deliveryOptions.classList.contains('show')) {
+                deliveryOptions.classList.remove('show');
+                return;
+            }
+            
+            // تعبئة خيارات المحافظات
+            deliveryOptions.innerHTML = Object.keys(deliveryPrices).map(gov => `
+                <div class="delivery-option ${localStorage.getItem('selectedGovernorate') === gov ? 'selected' : ''}" 
+                     data-governorate="${gov}" 
+                     data-price="${deliveryPrices[gov]}">
+                    <div>
+                        <span class="delivery-option-name">${gov}</span>
+                    </div>
+                    <div>
+                        <span class="delivery-option-price">${deliveryPrices[gov]} د.ع</span>
+                    </div>
+                </div>
+            `).join('');
+            
+            deliveryOptions.classList.add('show');
+            selectedGovernorateContainer.style.display = 'none';
+            
+            // إضافة الأحداث لخيارات التوصيل
+            document.querySelectorAll('.delivery-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const governorate = this.getAttribute('data-governorate');
+                    const price = parseInt(this.getAttribute('data-price'));
+                    
+                    localStorage.setItem('selectedGovernorate', governorate);
+                    localStorage.setItem('deliveryPrice', price);
+                    
+                    updateDeliveryDisplay();
+                    updateCart();
+                    
+                    document.querySelectorAll('.delivery-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    
+                    deliveryOptions.classList.remove('show');
+                    selectedGovernorateContainer.style.display = 'block';
+                });
+            });
+        }
+
+        // تحديث عرض معلومات التوصيل
+        function updateDeliveryDisplay() {
+            const selectedGovernorate = localStorage.getItem('selectedGovernorate');
+            const deliveryPrice = localStorage.getItem('deliveryPrice') || 0;
+            
+            deliveryPriceDisplay.textContent = `${deliveryPrice} د.ع`;
+            deliveryPriceElement.textContent = `${deliveryPrice} د.ع`;
+            
+            if (selectedGovernorate) {
+                selectedGovernorateName.textContent = selectedGovernorate;
+                selectedGovernorateContainer.style.display = 'block';
+                
+                // تحديث المحافظة المختارة في صفحة الدفع
+                if (governorateSelect) {
+                    governorateSelect.value = selectedGovernorate;
+                }
+            } else {
+                selectedGovernorateContainer.style.display = 'none';
+            }
         }
 
         // إضافة الأحداث للمنتجات
@@ -1272,17 +1558,27 @@
         function updateCart() {
             const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-            const totalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const deliveryPrice = parseInt(localStorage.getItem('deliveryPrice')) || 0;
+            const total = subtotal + deliveryPrice;
             
             // تحديث العداد
             cartCount.textContent = totalItems;
             
+            // تحديث الأسعار
+            subtotalElement.textContent = `${subtotal} د.ع`;
+            deliveryPriceElement.textContent = `${deliveryPrice} د.ع`;
+            cartTotal.textContent = `${total} د.ع`;
+            
             // تحديث محتوى السلة
-            renderCartItems(cartItems, totalPrice);
+            renderCartItems(cartItems);
+            
+            // تعطيل زر الشراء إذا لم يتم اختيار محافظة
+            checkoutBtn.disabled = cartItems.length === 0 || !localStorage.getItem('selectedGovernorate');
         }
 
         // عرض عناصر السلة
-        function renderCartItems(cartItems, totalPrice) {
+        function renderCartItems(cartItems) {
             if (cartItems.length === 0) {
                 cartItemsContainer.innerHTML = `
                     <div style="text-align: center; padding: 3rem; color: var(--text-secondary)">
@@ -1290,12 +1586,9 @@
                         <p style="font-size: 1.2rem;">سلة التسوق فارغة</p>
                     </div>
                 `;
-                cartTotal.textContent = '0 د.ع';
-                checkoutBtn.disabled = true;
                 return;
             }
             
-            checkoutBtn.disabled = false;
             cartItemsContainer.innerHTML = cartItems.map(item => `
                 <div class="cart-item" data-id="${item.id}" data-size="${item.size}" data-color="${item.color}">
                     <img src="${item.image}" alt="${item.name}" class="cart-item-image">
@@ -1322,8 +1615,6 @@
                     </div>
                 </div>
             `).join('');
-            
-            cartTotal.textContent = `${totalPrice} د.ع`;
             
             // إضافة الأحداث لعناصر السلة
             addCartEventListeners();
@@ -1414,6 +1705,11 @@
                 return;
             }
             
+            if (!localStorage.getItem('selectedGovernorate')) {
+                alert('الرجاء اختيار المحافظة أولاً');
+                return;
+            }
+            
             checkoutPage.classList.add('open');
             overlay.classList.add('active');
             cartPage.classList.remove('open');
@@ -1433,16 +1729,19 @@
             
             const fullName = document.getElementById('fullName').value;
             const phone = document.getElementById('phone').value;
+            const governorate = document.getElementById('governorate').value;
             const address = document.getElementById('address').value;
             const notes = document.getElementById('notes').value;
             
-            if (!fullName || !phone || !address) {
+            if (!fullName || !phone || !governorate || !address) {
                 alert('الرجاء ملء جميع الحقول المطلوبة');
                 return;
             }
             
             const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const deliveryPrice = deliveryPrices[governorate] || 0;
+            const total = subtotal + deliveryPrice;
             
             // الحصول على التاريخ والوقت الحالي
             const now = new Date();
@@ -1467,10 +1766,14 @@
                 message += `   - السعر: ${item.price * item.quantity} د.ع\n`;
             });
             
-            message += `\n💰 *المجموع الكلي*: ${total} د.ع\n\n`;
+            message += `\n💰 *ملخص الطلب*:\n`;
+            message += `- المجموع الجزئي: ${subtotal} د.ع\n`;
+            message += `- سعر التوصيل: ${deliveryPrice} د.ع\n`;
+            message += `- المجموع الكلي: ${total} د.ع\n\n`;
             message += `👤 *معلومات العميل*:\n`;
             message += `- الاسم: ${fullName}\n`;
             message += `- الجوال: ${phone}\n`;
+            message += `- المحافظة: ${governorate}\n`;
             message += `- العنوان: ${address}\n`;
             
             if (notes) {
@@ -1483,6 +1786,8 @@
             
             // مسح السلة
             localStorage.removeItem('cartItems');
+            localStorage.removeItem('selectedGovernorate');
+            localStorage.removeItem('deliveryPrice');
             updateCart();
             
             // إغلاق صفحة الدفع
@@ -1490,7 +1795,6 @@
             
             // فتح واتساب مباشرة
             window.open(whatsappUrl, '_blank');
-
         }
 
         // إنشاء جسيمات متحركة
@@ -1534,12 +1838,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
             displayProducts();
+            populateGovernorates();
+            updateDeliveryDisplay();
             updateCart();
             
             // أحداث السلة
             cartIndicator.addEventListener('click', toggleCart);
             closeCart.addEventListener('click', toggleCart);
             overlay.addEventListener('click', toggleCart);
+            
+            // أحداث التوصيل
+            deliveryHeader.addEventListener('click', showDeliveryOptions);
+            changeGovernorate.addEventListener('click', showDeliveryOptions);
             
             // أحداث الدفع
             checkoutBtn.addEventListener('click', openCheckoutPage);
